@@ -1,9 +1,10 @@
 .label-campo {
   font-size: 1.05rem;
   font-weight: 500;
-  color: #ffffff !important;
+  color: #222 !important;
   margin-top: 0.5rem;
   display: block;
+  background: #fff !important;
 }
 /* Centralização e espaçamento do título principal */
 .titulo-principal {
@@ -12,7 +13,8 @@
   margin-bottom: 1.5rem;
   font-size: 2rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #222 !important;
+  background: #fff !important;
 }
 /* Botões especiais */
 .button-whatsapp {
@@ -36,18 +38,20 @@ body {
   margin: 0;
   font-family: system-ui, sans-serif;
   background: #fff !important;
-  color: #2c3136 !important;
+  color: #222 !important;
 }
 
 #root {
   max-width: 480px;
   margin: 0 auto;
+  background: #fff !important;
+  color: #222 !important;
 }
 
 .container {
   margin-top: 6rem;
-  color: #fff;
-  background: #2c3136 !important;
+  color: #222 !important;
+  background: #fff !important;
   border-radius: 12px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
   padding: 0.1rem 2.5rem 2.5rem 2.5rem;
@@ -58,8 +62,8 @@ body {
   flex-direction: column;
 }
 .input {
- color:#302f2f !important ;
- background-color: #ffffff !;
+  color: #222 !important;
+  background: #fff !important;
 }
 
 .input,
@@ -67,7 +71,8 @@ body {
   padding: 1rem;
   border-radius: 8px;
   font-size: 1.1rem;
-  border: 1px solid #302f2f;
+  border: 1px solid #ccc !important;
+  color: #222 !important;
 }
 .button-whatsapp {
   background: #25d366;
@@ -88,7 +93,7 @@ body {
 
 button {
   margin-top: 1rem;
-  background: #646cff;
+  background: red;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -106,11 +111,11 @@ button:disabled {
   margin-bottom: 1rem;
 }
 .resultado {
-  background: #f6f8fa;
+  background: #f6f8fa !important;
   border-radius: 8px;
   padding: 1rem;
   margin-top: 1rem;
-  color: #2c3136;
+  color: #222 !important;
 }
 .resultado h2 {
   margin: 0 0 0.5rem 0;
@@ -118,7 +123,8 @@ button:disabled {
 }
 
 .header {
-  background: #2c3136;
+  background: #fff !important;
+  color: #222 !important;
   padding: 0.7rem 0 0.2rem 0;
   position: fixed;
   top: 0;
@@ -126,6 +132,7 @@ button:disabled {
   width: 100vw;
   z-index: 100;
   border-bottom: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 .header-content {
   display: flex;
@@ -136,7 +143,8 @@ button:disabled {
   padding: 0 1rem;
 }
 .logo {
-  color: #fff;
+  color: #222 !important;
+  background: #fff !important;
   font-weight: 600;
   font-size: 1.1rem;
   letter-spacing: 1px;
@@ -158,7 +166,7 @@ button:disabled {
   width: 28px;
   height: 4px;
   margin: 5px 0;
-  background: #fff;
+  background: #000000;
   border-radius: 2px;
   transition: 0.3s;
 }
@@ -176,7 +184,7 @@ button:disabled {
 }
 .header-menu li {
   background: none;
-  color: #fff;
+  color: #222 !important;
   border-radius: 0;
   padding: 0.5rem 0;
   font-weight: 500;
@@ -222,7 +230,7 @@ button:disabled {
     position: absolute;
     top: 100%;
     right: 0;
-    background: #2c3136;
+    background: #f5f6f7;
     flex-direction: column;
     gap: 0.5rem;
     width: 180px;
