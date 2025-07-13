@@ -1,0 +1,70 @@
+.sobre-faq-wrapper {
+  margin-top: 2em;
+}
+.sobre-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
+.sobre-faq-card {
+  background: #f6f8fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(100,108,255,0.07);
+  padding: 1em 1.2em;
+  cursor: pointer;
+  border: 1px solid #e0e0ff;
+  transition: border 0.2s, min-height 0.3s, box-shadow 0.2s;
+  min-height: 3.2em;
+  overflow: hidden;
+  box-sizing: border-box;
+  max-width: 540px;
+  width: 100%;
+  word-break: break-word;
+}
+.sobre-faq-card.aberto {
+  border: 2px solid #646cff;
+  box-shadow: 0 4px 16px rgba(100,108,255,0.10);
+}
+.sobre-faq-pergunta {
+  font-weight: bold;
+  color: #535bf2;
+  font-size: 1.05em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sobre-faq-icon {
+  font-weight: normal;
+  color: #888;
+  margin-left: 1em;
+}
+.sobre-faq-resposta {
+  margin-top: 0.7em;
+  color: #222;
+  transition: opacity 0.3s;
+  opacity: 1;
+  word-break: break-word;
+  white-space: pre-line;
+}
+.sobre-faq-card:not(.aberto) .sobre-faq-resposta {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+.sobre-lista {
+  padding-left: 1.2em;
+  margin: 0;
+}
+#sobre {
+  position: relative;
+}
+#sobre h2 {
+  position: sticky;
+  top: 64px; /* altura do header fixa, ajuste conforme necessário */
+  background: #fff;
+  z-index: 10;
+  padding: 1rem 0 0.5rem 0;
+  margin-bottom: 1.5rem;
+}
