@@ -15,9 +15,9 @@ export default function Ajuda() {
       return;
     }
     setLoading(true);
-    const { error } = await supabase.from("contatos").insert([
-      { nome, telefone, mensagem },
-    ]);
+    const { error } = await supabase
+      .from("contatos")
+      .insert([{ nome, telefone, mensagem }]);
     setLoading(false);
     if (error) {
       alert("Erro ao enviar. Tente novamente mais tarde.");
@@ -31,41 +31,55 @@ export default function Ajuda() {
   };
 
   return (
-    <div className="container" id="ajuda">
-      <h2>Ajuda & Contato</h2>
-      <p>
-        Se você tem dúvidas ou precisa de informações sobre sua consulta,
-        preencha o formulário abaixo:
-      </p>
-      <form className="form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Seu nome"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-          className="input"
-          required
-        />
-        <input
-          type="tel"
-          placeholder="Seu telefone"
-          value={telefone}
-          onChange={(e) => setTelefone(e.target.value.replace(/[^\d]/g, ""))}
-          className="input"
-          required
-        />
-        <textarea
-          placeholder="Sua mensagem"
-          value={mensagem}
-          onChange={(e) => setMensagem(e.target.value)}
-          className="input"
-          rows={4}
-          required
-        />
-        <button type="submit" className="button" disabled={loading}>
-          {loading ? "Enviando..." : "Enviar"}
-        </button>
-      </form>
-    </div>
+    <>
+      <div className="container" id="ajuda">
+        <h2 className="titulo-principal">Ajuda & Contato</h2>
+        <p>
+          Se você tem dúvidas ou precisa de informações sobre sua consulta,
+          preencha o formulário abaixo:
+        </p>
+        <form className="form" onSubmit={handleSubmit}>
+          <label className="label-campo" htmlFor="ajuda-nome">
+            Nome
+          </label>
+          <input
+            id="ajuda-nome"
+            type="text"
+            placeholder="Seu nome"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            className="input"
+            required
+          />
+          <label className="label-campo" htmlFor="ajuda-telefone">
+            Telefone
+          </label>
+          <input
+            id="ajuda-telefone"
+            type="tel"
+            placeholder="(99) 99999-9999"
+            value={telefone}
+            onChange={(e) => setTelefone(e.target.value.replace(/[^\d]/g, ""))}
+            className="input"
+            required
+          />
+          <label className="label-campo" htmlFor="ajuda-mensagem">
+            Sua mensagem
+          </label>
+          <textarea
+            id="ajuda-mensagem"
+            placeholder="escreva sua dúvida ou solicitação"
+            value={mensagem}
+            onChange={(e) => setMensagem(e.target.value)}
+            className="input"
+            rows={4}
+            required
+          />
+          <button type="submit" className="button" disabled={loading}>
+            {loading ? "Enviando..." : "Enviar"}
+          </button>
+        </form>
+      </div>
+    </>
   );
 }

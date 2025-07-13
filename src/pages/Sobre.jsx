@@ -38,7 +38,8 @@ const faqs = [
   },
   {
     pergunta: "Meus dados estão errados, e agora?",
-    resposta: "Basta entrar em contato pela nossa página de ajuda que iremos solucionar o problema.",
+    resposta:
+      "Basta entrar em contato pela nossa página de ajuda que iremos solucionar o problema.",
   },
 ];
 
@@ -47,7 +48,7 @@ export default function Sobre() {
 
   return (
     <div id="sobre">
-      <h2>ℹ️ Informações & FAQ</h2>
+      <h2 className="titulo-faq">ℹ️ Informações & FAQ</h2>
       <div className="sobre-faq-wrapper">
         <div className="sobre-faq-list">
           {faqs.map((faq, idx) => (

@@ -32,8 +32,10 @@ function App() {
       setLoading(false);
       return;
     }
+
     const nomeBusca = removerAcentos(nome.toUpperCase().trim());
     const cpfBusca = cpf.trim();
+
     try {
       const { data, error: supaError } = await supabase
         .from("precatorios")
@@ -53,7 +55,9 @@ function App() {
 
   // Função para gerar texto do extrato
   function gerarTextoExtrato() {
-    return `Precatórios Campo Alegre\n\nNome: ${nome}\nValor a receber: ${calcularValorReceber(valor)} (${valor}% do total de R$14.185.125,36)`;
+    return `Precatórios Campo Alegre\n\nNome: ${nome}\nValor a receber: ${calcularValorReceber(
+      valor
+    )} (${valor}% do total de R$14.185.125,36)`;
   }
 
   // Função para enviar por WhatsApp
@@ -71,47 +75,76 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <h2>Consultar valor a receber</h2>
-      <div className="form">
-        <input
-          type="text"
-          placeholder="Nome completo"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-          className="input"
-          required
-        />
-        <input
-          type="text"
-          placeholder="Primeiros 3 dígitos do CPF"
-          value={cpf}
-          maxLength={3}
-          onChange={(e) => setCpf(e.target.value.replace(/\D/g, ""))}
-          className="input"
-          required
-        />
-        <button onClick={handleConsulta} className="button" disabled={loading}>
-          {loading ? "Consultando..." : "Consultar"}
-        </button>
-      </div>
-      {error && <p className="error">{error}</p>}
-      {valor && (
-        <div className="resultado" style={{ textAlign: "center" }}>
-          <h2>Valor a receber:</h2>
-          <h3>{calcularValorReceber(valor)}</h3>
-          <p>correspondente a {valor}% do total de R$14.185.125,36.</p>
-          <div style={{ marginTop: "1.5rem", display: "flex", justifyContent: "center", gap: "1rem", flexWrap: "wrap" }}>
-            <button className="button button-whatsapp" onClick={enviarWhatsApp}>
-              Enviar por WhatsApp
-            </button>
-            <button className="button button-pdf" onClick={baixarPDF}>
-              Baixar PDF
-            </button>
-          </div>
+    <>
+      <div className="container">
+        <h2 className="titulo-principal">Consultar valor a receber</h2>
+        <div className="form">
+          <label className="label-campo" htmlFor="nome">
+            Nome completo
+          </label>
+          <input
+            id="nome"
+            type="text"
+            placeholder="nome completo"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            className="input"
+            required
+          />
+          <label className="label-campo" htmlFor="cpf">
+            Primeiros 3 dígitos do CPF
+          </label>
+          <input
+            id="cpf"
+            type="text"
+            placeholder="000"
+            value={cpf}
+            maxLength={3}
+            onChange={(e) => setCpf(e.target.value.replace(/\D/g, ""))}
+            className="input"
+            required
+          />
+          <button
+            onClick={handleConsulta}
+            className="button"
+            disabled={loading}
+          >
+            {loading ? "Consultando..." : "Consultar"}
+          </button>
         </div>
-      )}
-    </div>
+        {error && <p className="error">{error}</p>}
+        {valor && (
+          <div className="resultado" style={{ textAlign: "center" }}>
+            <h2>Valor a receber:</h2>
+            <h3>{calcularValorReceber(valor)}</h3>
+            <p>
+              esse valor é correspondente a cota parte {valor}% de
+              R$14.185.125,36.
+            </p>
+
+            <div
+              style={{
+                marginTop: "1.5rem",
+                display: "flex",
+                justifyContent: "center",
+                gap: "1rem",
+                flexWrap: "wrap",
+              }}
+            >
+              <button
+                className="button button-whatsapp"
+                onClick={enviarWhatsApp}
+              >
+                Enviar por WhatsApp
+              </button>
+              <button className="button button-pdf" onClick={baixarPDF}>
+                Baixar PDF
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
