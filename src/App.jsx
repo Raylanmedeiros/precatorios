@@ -37,20 +37,13 @@ function App() {
     try {
       const { data, error: supaError } = await supabase
         .from("precatorios")
-        .select("nome_completo, cpf3, valor_a_receber");
+        .select("nome_completo, cpf3, valor_a_receber")
+        .eq("nome_completo", nomeBusca)
+        .eq("cpf3", cpfBusca);
       if (supaError || !data || data.length === 0) {
         setError("Dados não encontrados.");
       } else {
-        const resultado = data.find(
-          (item) =>
-            removerAcentos(item.nome_completo.toUpperCase().trim()) === nomeBusca &&
-            item.cpf3.trim() === cpfBusca
-        );
-        if (resultado) {
-          setValor(resultado.valor_a_receber);
-        } else {
-          setError("Dados não encontrados.");
-        }
+        setValor(data[0].valor_a_receber);
       }
     } catch {
       setError("Erro ao consultar o banco de dados.");
