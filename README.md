@@ -3,6 +3,8 @@
 
 Plataforma web para consulta de precatórios municipais de Campo Alegre/AL. Permite ao cidadão consultar, de forma simples e rápida, o valor percentual e o valor em reais que tem direito a receber, além de compartilhar o extrato por WhatsApp ou baixar em PDF.
 
+[Rodando a partir do GitHub Pages!](https://raylanmedeiros.github.io/precatorios/)
+
 ## Objetivo
 
 Facilitar o acesso à informação sobre precatórios municipais, promovendo transparência e cidadania. Basta informar o nome completo e os 3 primeiros dígitos do CPF para realizar a consulta.
